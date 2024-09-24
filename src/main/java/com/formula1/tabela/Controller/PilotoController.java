@@ -17,24 +17,22 @@ import com.formula1.tabela.Service.PilotoService;
 @RequestMapping("/piloto")
 public class PilotoController {
     @Autowired
-    private PilotoService pilotoService;
+    private PilotoService acao;
 
     @PostMapping("/criar")
     public Piloto criarPiloto(@RequestBody Map<String, Object> pilotoData) {
-        // Extrai os dados do JSON
         String nomeEquipe = (String) pilotoData.get("nomeEquipe");
         Piloto piloto = new Piloto();
         piloto.setNumero((Integer) pilotoData.get("numero"));
         piloto.setNome((String) pilotoData.get("nome"));
         piloto.setPais((String) pilotoData.get("pais"));
 
-        // Chama o serviço para criar o piloto
-        return pilotoService.criarPiloto(piloto, nomeEquipe);
+        return acao.criarPiloto(piloto, nomeEquipe);
     }
 
     @GetMapping("/listar")
     public List<Piloto> listar() {
-        return pilotoService.listarPiloto();
+        return acao.listarPiloto();
     }
 }
 

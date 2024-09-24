@@ -15,16 +15,12 @@ public class Piloto {
     private Long id;
 
     private String nome;
-
     private int numero;
-
     private String pais;
 
     @ManyToOne
     @JoinColumn(name = "equipe_id", nullable = false)  // Indica a FK da equipe
     private Equipe equipe;
-
-    // Getters e Setters
 
     public Long getId() {
         return id;

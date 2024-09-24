@@ -22,7 +22,6 @@ public class Equipe {
     @Column(name = "pais", nullable = false, length = 50)
     private String pais;
 
-    // Getters e Setters
     public int getIdEquipe() {
         return idEquipe;
     }
