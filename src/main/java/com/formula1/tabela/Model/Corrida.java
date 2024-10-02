@@ -1,5 +1,9 @@
 package com.formula1.tabela.Model;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,26 +14,30 @@ public class Corrida {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCorrida;
+    private Long id;
 
-    private String nome;
-    private String circuito;
-    private String pais;
+    @Column(nullable = false)
+    private String nome;  // Nome da corrida
 
-    public int getIdCorrida() {
-        return idCorrida;
+    @ElementCollection
+    @Column(name = "nome_piloto")
+    private List<String> pilotos;  // Nomes dos pilotos na corrida, ordenados pela posição
+
+    // Construtores
+    public Corrida() {}
+
+    public Corrida(String nome, List<String> pilotos) {
+        this.nome = nome;
+        this.pilotos = pilotos;
     }
 
-    public void setIdCorrida(int idCorrida) {
-        this.idCorrida = idCorrida;
+    // Getters e setters
+    public Long getId() {
+        return id;
     }
 
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -40,12 +48,11 @@ public class Corrida {
         this.nome = nome;
     }
 
-    public String getCircuito() {
-        return circuito;
+    public List<String> getPilotos() {
+        return pilotos;
     }
 
-    public void setCircuito(String circuito) {
-        this.circuito = circuito;
+    public void setPilotos(List<String> pilotos) {
+        this.pilotos = pilotos;
     }
-
 }

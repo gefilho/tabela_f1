@@ -12,5 +12,7 @@ public interface PilotoRepository extends CrudRepository <Piloto, Integer> {
 
     List<Piloto> findAll();
 
+    Piloto findByNome(String nome);
+
 
 }

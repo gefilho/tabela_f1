@@ -17,6 +17,7 @@ public class Piloto {
     private String nome;
     private int numero;
     private String pais;
+    private int pontuacao;
 
     @ManyToOne
     @JoinColumn(name = "equipe_id", nullable = false)  // Indica a FK da equipe
@@ -61,4 +62,13 @@ public class Piloto {
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
     }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
 }
